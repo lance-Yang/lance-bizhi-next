@@ -121,6 +121,9 @@ const Home: NextPage = () => {
       </div>
       <Row style={{marginTop:20}}>
         <Col xs={12}>
+          {
+            
+          }
           <nav aria-label="Page navigation example">
             <ul className="pagination justify-content-center">
               <li className="page-item disabled">
