@@ -1,0 +1,105 @@
+
+.frosted {
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100vh;
+	background: rgba(255, 255, 255, .1);
+	backdrop-filter: blur(4px);
+}
+/* 旋转loading的外圈 */
+.loader {
+	width: 150px;
+	height: 150px;
+	border: 3px solid transparent;
+	border-top-color: #fff;
+	/* 相对定位 居中 */
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	margin-left: -75px;
+	margin-top: -75px;
+	z-index: 999;
+	border-radius: 50%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	/* 执行旋转动画 */
+	animation: spin 1.7s linear infinite;
+}
+/* 旋转loading的中圈 */
+.loader::before {
+	content: "";
+	/* 绝对定位 */
+	position: absolute;
+	top: 5px;
+	left: 5px;
+	bottom: 5px;
+	right: 5px;
+	border-radius: 50%;
+	border: 3px solid transparent;
+	border-top-color: #fff;
+	/* 执行反向的旋转动画 reverse:反向 */
+	animation: spin 0.6s linear infinite reverse;
+}
+/* 旋转loading的内圈 */
+.loader::after {
+	content: "";
+	/* 绝对定位 */
+	position: absolute;
+	top: 15px;
+	left: 15px;
+	bottom: 15px;
+	right: 15px;
+	border-radius: 50%;
+	border: 3px solid transparent;
+	border-top-color: #fff;
+	/* 执行旋转动画 */
+	animation: spin 1s linear infinite;
+}
+/* logo */
+.loader img {
+	width: 55%;
+	height: 55%;
+	border-radius: 50%;
+	/* 执行反向的旋转动画,时长必须和外圈的动画一致(不让其跟着旋转) */
+	animation: spin 1.7s linear infinite reverse;
+}
+/* 定义动画 */
+/* 背景渐变动画 */
+@keyframes gradient {
+	50% {
+		background-position: 100% 0%;
+	}
+}
+/* 旋转动画 */
+@keyframes spin {
+	0% {
+		transform: rotate(0);
+	}
+	100% {
+		transform: rotate(360deg);
+	}
+}
+/* 文字移动动画 */
+@keyframes move {
+	0% {
+		right: 0;
+		opacity: 0;
+	}
+	35% {
+		right: 41%;
+		opacity: 1;
+		transform: rotate(0);
+	}
+	65% {
+		right: 59%;
+		opacity: 1;
+		transform: rotate(0);
+	}
+	100% {
+		right: 100%;
+		transform: rotate(-180deg);
+	}
+}
