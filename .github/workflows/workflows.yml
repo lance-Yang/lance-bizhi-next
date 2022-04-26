@@ -1,4 +1,4 @@
-name: lance-blog
+name: lance-bizhi-next
 on:
   push:
     branches: [ main ]
